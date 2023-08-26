@@ -1,0 +1,14 @@
+h1 {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+li {
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-size: 15pt;
+}
+.Weather {
+  width: fit-content;
+  margin: 0 auto;
+}
