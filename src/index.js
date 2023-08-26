@@ -8,6 +8,11 @@ root.render(
   <React.StrictMode>
     <h1>Weather App</h1>
     <Weather />
+      <hr />
+    <p className="credit">
+      <a href="https://github.com/eyjanice/weather-app">Open-source Code</a> by
+      Eunyoung Cho
+    </p>
   </React.StrictMode>
 );
 
