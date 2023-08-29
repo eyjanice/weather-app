@@ -1,0 +1,30 @@
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+li {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-size: 13pt;
+  text-transform: capitalize;
+}
+.Weather {
+  width: fit-content;
+  margin: 0 auto;
+}
+hr {
+  margin-top: 300px;
+}
+.Weather ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.degreeNumber {
+  font-size: 50px;
+}
+.unit {
+  position: relative;
+  top: -24px;
+}

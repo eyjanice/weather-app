@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles.css";
-import Weather from "./Weather";
+import "./Container.css";
+import "./Search.css";
+import Container from "./Container";
+import "bootstrap/dist/css/bootstrap.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <h1>Weather App</h1>
-    <Weather />
-      <hr />
+    <Container />
     <p className="credit">
       <a href="https://github.com/eyjanice/weather-app">Open-source Code</a> by
       Eunyoung Cho

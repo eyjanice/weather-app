@@ -1,0 +1,24 @@
+.Container {
+  padding: 40px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  margin: 50px 50px;
+}
+.Container h1 {
+  text-transform: capitalize;
+}
+.row {
+  width: 500px;
+}
+
+.Time li {
+  font-size: 15px;
+}
+
+.Time ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.credit {
+  margin-left: 5%;
+}
