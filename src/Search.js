@@ -3,15 +3,11 @@ import axios from "axios";
 import Time from "./Time";
 import "./Search.css";
 import Temperature from "./Temperature";
+import WeatherForecast from "./WeatherForecast";
 
-export default function Weather() {
-  const [query, setQuery] = useState("");
-  const [city, setCity] = useState("");
-  const [weather, setWeather] = useState(null);
-  const [result, setResult] = useState(false);
-
-  const searchWeather = (
-    <form className="mb-3 searchBar" onSubmit={onSubmitHandler}>
+function SearchWeather(props) {
+  return (
+    <form className="mb-3 searchBar" onSubmit={props.onSubmit}>
       <div className="row">
         <div className="col-9">
           <input
@@ -19,7 +15,7 @@ export default function Weather() {
             placeholder="Type a city..."
             className="form-control"
             autoComplete="off"
-            onChange={onChangeHandler}
+            onChange={props.onChange}
           />
         </div>
         <div className="col-3">
@@ -32,11 +28,20 @@ export default function Weather() {
       </div>
     </form>
   );
+}
+
+export default function Weather() {
+  const [query, setQuery] = useState("");
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [result, setResult] = useState(false);
+  const [unit, setUnit] = useState("celsius");
 
   function showWeather(response) {
     setResult(true);
     setWeather({
       time: new Date(response.data.dt * 1000),
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -59,7 +64,7 @@ export default function Weather() {
   if (result) {
     return (
       <div className="Weather">
-        {searchWeather}
+        <SearchWeather onSubmit={onSubmitHandler} onChange={onChangeHandler} />
         <Time time={weather.time} />
         {city !== "" && (
           <div>
@@ -70,7 +75,11 @@ export default function Weather() {
                   src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
                   alt={weather.description}
                 />{" "}
-                <Temperature celsius={weather.temperature} />
+                <Temperature
+                  celsius={weather.temperature}
+                  unit={unit}
+                  setUnit={setUnit}
+                />
               </div>
               <div className="col-6">
                 <ul>
@@ -81,11 +90,16 @@ export default function Weather() {
                 </ul>
               </div>
             </div>
+            <WeatherForecast coordinates={weather.coordinates} unit={unit} />
           </div>
         )}
       </div>
     );
   } else {
-    return <div className="Weather">{searchWeather}</div>;
+    return (
+      <div className="Weather">
+        <SearchWeather onSubmit={onSubmitHandler} onChange={onChangeHandler} />
+      </div>
+    );
   }
 }

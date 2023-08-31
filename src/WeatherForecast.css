@@ -1,0 +1,14 @@
+.WeatherForecast {
+  text-align: center;
+  font-size: 12pt;
+}
+
+.forecast-temp-max {
+  color: grey;
+}
+
+.forecast-temp-min {
+  color: grey;
+  opacity: 75%;
+  margin-left: 10%;
+}
