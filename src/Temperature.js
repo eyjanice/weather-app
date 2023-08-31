@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Search.css";
 
 export default function Temperature({ celsius, unit, setUnit }) {
